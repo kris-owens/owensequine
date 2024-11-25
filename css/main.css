@@ -1,0 +1,598 @@
+/* ==========================================================================
+   HTML5 Boilerplate styles - h5bp.com (generated via initializr.com)
+   ========================================================================== */
+
+html,
+button,
+input,
+select,
+textarea {
+    color: #222;
+}
+
+html,
+body {
+    font: small Helvetica, Helvetica Neue, Arial, sans-serif;
+    line-height: 150%;
+    height: 100%;
+    width: 100%;
+}
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+h2 {
+    font-size: initial;
+    margin: 0 0 .4em 0;
+}
+
+a {
+    color: darkblue;
+    text-decoration: none;
+}
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+img {
+    vertical-align: middle;
+}
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.chromeframe {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+
+/* ===== Initializr Styles ==================================================
+   Author: Jonathan Verrecchia - verekia.com/initializr/responsive-template
+   ========================================================================== */
+
+.wrapper {
+    width: 90%;
+    margin: 0 5%;
+}
+
+
+
+.header-container {
+    border-bottom: 20px solid #e44d26;
+}
+
+.footer-container,
+.main aside {
+    border-top: 20px solid #e44d26;
+}
+
+.header-container,
+.footer-container,
+.main aside {
+    background: #f16529;
+}
+
+.title {
+    color: white;
+}
+
+.st_tabs_wrap {
+    width: 100%;
+    height: 75px;
+    position: fixed;
+    bottom: 0;
+    overflow: auto;
+    background: #fff;
+    border-top: 1px solid #ddd;
+    z-index: 1000;
+}
+
+
+    .st_tabs_wrap .tabscontainer {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        height: 100%;
+        display: table;
+    }
+
+
+    .st_tabs_wrap ul {
+        list-style: none;
+        padding: 7px 30px;
+        background: white;
+        margin: 0;
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+        .st_tabs_wrap ul li {
+            display: inline-block;
+            margin: 5px 0;
+        }
+
+a.st_tab,
+#navtabs > li > a {
+    font-size: initial;
+    font-weight: bold;
+    text-decoration: none;
+    color: #000;
+    padding: 5px 10px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+    #navtabs > li > a:hover,
+    #navtabs > li > a.st_tab_active {
+        background: #000;
+        color: #fff;
+    }
+
+#navtabs > li[data-view='contact'] {
+    display: none;
+}
+
+.st_tabs .logo {
+    position: absolute;
+    top: 0;
+    left: 35px;
+}
+
+.st_tabs .contact {
+    position: absolute;
+    left: 210px;
+    color: black;
+    bottom: 20px;
+    line-height: 140%;
+    font-weight: bold;
+}
+
+    .st_tabs .contact.address {
+        left: 430px;
+    }
+
+    .st_tabs .contact a {
+        color: inherit;
+    }
+
+section {
+    width: 70%;
+    margin: 0 auto;
+}
+
+article {
+    background: #fff;
+    margin-bottom: 5px;
+    padding: 20px;
+}
+
+    article > p {
+        padding-bottom: 1em;
+    }
+span.nav {
+    margin-top: 25px;
+    position: absolute;
+    right: 25px;
+    font-weight: bold;
+}
+
+
+ul.photolist, ul.linklist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul.linklist {
+    margin-bottom: 2em;
+}
+
+.photolist h2 {
+    margin: 0;
+}
+
+.photolist > li {
+    padding: 10px;
+    min-height: 150px;
+}
+
+    .photolist > li > header {
+        font-size: initial;
+        font-weight: bold;
+        xdisplay: inline-block;
+    }
+
+    .photolist > li img {
+        float: left;
+        margin: 0 20px 10px 0;
+        width: 150px;
+        height: 150px;
+    }
+
+    .photolist > li .Memberships > img {
+        width: auto;
+        height: auto;
+        max-height: 150px;
+        max-width: 150px;
+        float: none;
+    }
+
+section p {
+    margin: -3px 0 .2em 0;
+}
+
+/* ==========================================================================
+   Formatting styles
+   ========================================================================== */
+
+.b {
+    font-weight: bold;
+}
+
+.L {
+    float: left;
+}
+
+.R {
+    float: right;
+}
+
+.st_view {
+    display: none;
+}
+
+a.deactivate {
+    background: #fff;
+    color: #000;
+}
+
+img.full {
+    width: 100%;
+    height: auto;
+}
+
+
+
+/* 
+ * Horizontal Tabs
+ *
+------------------------------------------------------------------------------------- */
+div.clean-horizontal { /* The main container */
+    position: relative;
+    clear: both;
+    height: 100%;
+}
+
+    /* Directional Buttons (horizontal)
+------------------------------------------------------------------------------------- */
+    div.clean-horizontal > div.st_tabs a.st_prev,
+    div.clean-horizontal > div.st_tabs a.st_next { /* Directional buttons (previous/next) */
+        display: none;
+        position: absolute;
+        top: 0px;
+        z-index: 110;
+        height: 44px;
+        width: 43px;
+        text-indent: -999em;
+        outline: none;
+    }
+
+    div.clean-horizontal > div.st_tabs a.st_prev { /* Previous button */
+        left: 0px;
+    }
+
+        div.clean-horizontal > div.st_tabs a.st_prev:hover { /* Previous button hover */
+            background-color: #f8f8f8;
+        }
+
+    div.clean-horizontal > div.st_tabs a.st_next { /* Next button */
+        right: 0px;
+    }
+
+        div.clean-horizontal > div.st_tabs a.st_next:hover { /* Next button hover */
+            background-color: #f8f8f8;
+        }
+
+        div.clean-horizontal > div.st_tabs a.st_prev.st_btn_disabled,
+        div.clean-horizontal > div.st_tabs a.st_next.st_btn_disabled { /* Previous and next buttons disabled state */
+            cursor: default;
+        }
+
+    div.clean-horizontal > div.st_tabs a.st_prev.st_btn_disabled { /* Previous button disabled state */
+    }
+
+    div.clean-horizontal > div.st_tabs a.st_next.st_btn_disabled { /* Next button disabled state */
+    }
+
+    /* Tabs (horizontal)
+------------------------------------------------------------------------------------- */
+    div.clean-horizontal > div.st_tabs {
+    }
+
+
+
+
+
+    /* Content (horizontal)
+------------------------------------------------------------------------------------- */
+    div.clean-horizontal > div.st_views { /* Main content container */
+        position: relative;
+        z-index: 5;
+        height: 100%;
+        width: 100%;
+        padding: 0px !important;
+        overflow: hidden;
+    }
+
+        div.clean-horizontal > div.st_views div.st_view { /* Content containers - NOTE: background images will be set on these containers */
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-image: none;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            padding: 30px 0 100px 0;
+        }
+
+        div.clean-horizontal > div.st_views div.st_view_inner { /* Inner content containers */
+            padding: 30px; /* Padding for the content */
+        }
+
+        div.clean-horizontal > div.st_views div.st_view_first { /* First content container */
+            display: block; /* Show the first content container */
+        }
+
+
+#supersized {
+    display: block;
+    position: fixed;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+    z-index: -10;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+    #supersized img {
+        width: auto;
+        height: auto;
+        position: relative;
+        outline: none;
+        border: none;
+    }
+
+    #supersized li {
+        display: block;
+        list-style: none;
+        z-index: -30;
+        position: fixed;
+        overflow: hidden;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    #supersized a {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+    #supersized li.prevslide {
+        z-index: -20;
+    }
+
+    #supersized li.activeslide {
+        z-index: -10;
+    }
+
+    #supersized li.image-loading img {
+        visibility: hidden;
+    }
+
+    #supersized li.prevslide img, #supersized li.activeslide img {
+        display: inline;
+    }
+
+
+
+.galleria-info {
+    width: auto !important;
+    top: auto !important;
+    bottom: 60px !important;
+    left: 0 !important;
+    right: 0 !important;
+    text-align: center !important;
+    user-select: none;
+}
+
+.galleria-info-text {
+    background: rgba(0,0,0,.4) !important;
+    height: 20px !important;
+    display: block !important;
+}
+
+.galleria-info-title {
+    margin: 2px 0 0 0 !important;
+    font: inherit !important;
+    font-weight: normal !important;
+    font-size: 100% !important;
+    text-transform: capitalize !important;
+}
+
+.galleria-info-link, galleria-info-close {
+    display: none;
+}
+
+
+@media screen and (max-width: 800px) {
+    section {
+        width: 80%;
+    }
+
+    #navtabs > li[data-view='contact'] {
+        display: inline-block;
+    }
+
+
+    .st_tabs .contact {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    section {
+        width: 95%;
+    }
+
+
+    .st_tabs .logo {
+        left: 0;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .st_tabs_wrap > a {
+        display: none;
+    }
+
+    section {
+        width: 100%;
+    }
+
+    article {
+        margin-bottom: 0;
+        padding: 10px;
+    }
+
+    .photolist > li img {
+        float: none;
+    }
+
+    div.clean-horizontal > div.st_views div.st_view {
+        padding-top: 0;
+    }
+
+
+    .st_tabs_wrap ul {
+        padding: 7px 30px;
+    }
+
+        .st_tabs_wrap ul li {
+            margin: 5px 0;
+        }
+
+    #navtabs {
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+}
+
+
+
+
+/* ==========================================================================
+   Print styles
+   ========================================================================== */
+
+@media print {
+    * {
+        background: transparent !important;
+        color: #000 !important; /* Black prints faster: h5bp.com/s */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+        a[href]:after {
+            content: " (" attr(href) ")";
+        }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    /*
+     * Don't show links for images, or javascript/internal links
+     */
+
+    .ir a:after,
+    a[href^="javascript:"]:after,
+    a[href^="#"]:after {
+        content: "";
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    thead {
+        display: table-header-group; /* h5bp.com/t */
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    @page {
+        margin: 0.5cm;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}

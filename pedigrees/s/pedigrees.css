@@ -1,0 +1,256 @@
+#pedigrees {
+    -webkit-font-smoothing: antialiased;
+    font-family: Roboto, sans-serif;
+    background-color: #e1f3d8;
+}
+
+#pedigrees,
+#pedigrees td {
+    font-size: .875rem;
+    font-weight: normal;
+}
+
+#pedigrees .label {
+    font-weight: 500;
+}
+
+#pedigrees .tabs {
+    flex: none;
+}
+
+#pedigrees .tabs .tab {
+    border: none;
+    background: none;
+    font: inherit;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    font-size: 1.5rem;
+    cursor: hand;
+    margin-right: 8px;
+}
+
+#pedigrees .tabs .tab:hover {
+    border-bottom-color: rgb(139, 197, 136);
+}
+
+#pedigrees .tabs .tab[selected="true"] {
+    font-weight: 500;
+    border-bottom-color: rgb(139, 197, 136);
+}
+
+#pedigrees .filter {
+    display: flex;
+    flex-direction: row;
+    font-size: .8rem;
+    align-items: center;
+}
+
+#pedigrees .tab-content {
+    flex: auto;
+    display: flex;
+    flex-direction: row;
+}
+
+#pedigrees .list {
+    flex: none;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    max-height: 1150px;
+}
+
+#pedigrees .list input {
+    margin: 8px;
+    padding: 6px 8px;
+    border: 1px solid silver;
+}
+
+#pedigrees .list .filter-status {
+    display: none;
+}
+
+#pedigrees .list .items {
+    overflow: auto;
+    border-right: 1px solid silver;
+    height: 100%;
+}
+
+#pedigrees .list a {
+    display: block;
+    line-height: 1.5rem;
+    text-decoration: none;
+    color: black;
+    padding: 0 8px;
+    box-sizing: content-box;
+    font-weight: normal;
+}
+
+#pedigrees .list a:hover {
+    background: #c6e9c4;
+}
+
+#pedigrees .list a[selected="true"] {
+    background: rgb(139, 197, 136);
+}
+
+#pedigrees .preview {
+    flex: auto;
+    padding: 8px 32px 32px 32px;
+}
+
+#pedigrees .preview h2 {
+    margin: 0 0 16px 0;
+    font-size: 2rem;
+}
+
+#pedigrees .preview h3 {
+    margin: 16px 0 8px 0;
+    font-size: 1.5rem;
+}
+
+#pedigrees .item>.description {
+    padding: 0 4px;
+}
+
+#pedigrees .columns {
+    display: flex;
+    flex-direction: row;
+}
+
+#pedigrees .columns .column {
+    flex: 1 auto;
+}
+
+#pedigrees .tiles {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#pedigrees .tile {
+    width: 300px;
+    background-color: white;
+    xmax-height: 158px;
+    text-decoration: none;
+    border: 1px solid rgb(139, 197, 136);
+    margin: 0 8px 8px 0;
+    display: flex;
+    flex-direction: column;
+    line-height: 1rem;
+    xmin-height: 100px;
+    xpadding-left: 128px;
+    position: relative;
+    color: black;
+    border-radius: 8px;
+}
+
+#pedigrees .tile:hover {
+    background-color: #c6e9c4;
+    ;
+}
+
+#pedigrees .tile header {
+    font-weight: 500;
+    padding: 4px 8px;
+}
+
+#pedigrees .tile .descriptions > div {
+    padding: 0 0 4px 0;
+}
+
+#pedigrees .tile .description {
+    font-size: .875rem;
+    padding: 0 8px;
+}
+
+#pedigrees .tile td {
+    vertical-align: top;
+    padding: 0 8px;
+    border: none !important;
+}
+
+#pedigrees .tile td:last-child {
+    text-align: center;
+}
+
+#pedigrees .tile img {
+    height: 120px;
+    max-height: 120px;
+    max-width: 120px;
+    flex: auto;
+    xheight: 100px;
+    object-fit: contain;
+    xposition: absolute;
+    xleft: 0;
+    margin-bottom: 4px;
+}
+
+#pedigrees .tile.tile-mini {
+    line-height: 1.5rem;
+}
+
+#pedigrees .tile.tile-mini .description {
+    padding: 0 8px;
+}
+
+#pedigrees td {
+    xline-height: 30px;
+    padding: 0 4px;
+}
+
+#pedigrees .lineage[depth="3"] .tile img {
+    height: 100px;
+    max-height: 100px;
+    max-width: 100px;
+}
+
+#pedigrees table.lineage>tr>td {
+    vertical-align: middle;
+    padding: 0;
+}
+
+#pedigrees .lineage .tile {
+    xborder: none;
+    margin: 4px 0;
+}
+
+#pedigrees .lineage .current {
+    height: 30px;
+}
+
+#pedigrees .lineage .current>div {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    align-items: center;
+}
+
+#pedigrees .lineage .branch {
+    position: relative;
+    width: 32px;
+    display: flex;
+    flex-direction: column;
+    height: 50%;
+}
+
+#pedigrees .lineage .branch .v {
+    border-right: 1px solid silver;
+    flex: 1 auto;
+    width: 50%;
+}
+
+#pedigrees .lineage .branch .h {
+    height: 1px;
+    flex: none;
+    background: silver;
+    width: 50%;
+}
+
+#pedigrees .lineage .branch .top.h,
+#pedigrees .lineage .branch .bottom.h {
+    position: absolute;
+    right: 0;
+}
+
+#pedigrees .lineage .branch .bottom.h {
+    bottom: 0;
+}

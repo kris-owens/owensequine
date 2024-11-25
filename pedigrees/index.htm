@@ -1,0 +1,359 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.1/knockout-latest.js"
+    integrity="sha512-2AL/VEauKkZqQU9BHgnv48OhXcJPx9vdzxN1JrKDVc4FPU/MEE/BZ6d9l0mP7VmvLsjtYwqiYQpDskK9dG8KBA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"
+    integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link type="text/css" rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Google+Sans:400,500,700|Google+Sans+Text:400&amp;lang=en">
+<link type="text/css" rel="stylesheet" href="s/pedigrees.css">
+<!-- <link type="text/css" rel="stylesheet"
+    href="https://static1.squarespace.com/static/versioned-site-css/62e46f55add2c66fea7bfeec/31/5c5a519771c10ba3470d8101/62e46f55add2c66fea7bff20/1441/site.css"> -->
+<script type="text/javascript" src="s/pedigrees-data.js"></script>
+<script type="text/javascript" src="s/pedigrees.js"></script>
+
+<div id="pedigrees">
+    <div id="header">
+        <div class="tabs">
+            <button class="tab"
+                data-bind="click: function() { $root.selectedTabIndex(0) }, attr: { selected: $root.selectedTabIndex() === 0 }">Goats</button>
+            <button class="tab"
+                data-bind="click: function() { $root.selectedTabIndex(1) }, attr: { selected: $root.selectedTabIndex() === 1 }">Breeders</button>
+        </div>
+    </div>
+    <div id="goats" class="tab-content" data-bind="visible: $root.selectedTabIndex() === 0">
+        <div class="list">
+            <input type="text" data-bind="textInput: $root.goatsFilter.input" placeholder="Search" />
+            <div class="filter-status"
+                data-bind="text: `Showing ${$root.goatsFilter.items().length} of ${$root.goatsFilter.itemsSource.length}`">
+            </div>
+            <div data-bind="foreach: $root.goatsFilter.items" class="items">
+                <a
+                    data-bind="text: $data.Name, attr: { selected: $root.selectedGoatId() === $data.Id, href: `#p=${$data.Id}`, 'data-id': $data.Id }"></a>
+            </div>
+        </div>
+        <div class="preview" data-bind="with: $root.selectedGoat">
+            <div data-bind="attr: { 'data-id': $data.Id }" class="item">
+                <h2>
+                    <span data-bind="text: $data.PreTitle"></span>
+                    <span data-bind="text: $data.Name"></span>
+                    <span data-bind="text: $data.PostTitle"></span>
+                </h2>
+                <div class="description">
+                    <div data-bind="text: $data.Description"></div>
+                    <div data-bind="text: $data.Color"></div>
+                </div>
+                <div class="columns">
+                    <div class="column">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td class="label">Breeder</td>
+                                    <td class="value">
+                                        <!-- ko if: $data.Breeder -->
+                                        <a
+                                            data-bind="text: $data.Breeder.Name, attr: { href: `#m=${$data.Breeder.Id}` }"></a>
+                                        <!-- /ko -->
+                                        <!-- ko if: !$data.Breeder -->
+                                        <div data-bind="text: $data.Id"></div>
+                                        <!-- /ko -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="label">Owner</td>
+                                    <td class="value">
+                                        <!-- ko if: $data.Owner -->
+                                        <a
+                                            data-bind="text: $data.Owner.Name, attr: { href: `#m=${$data.Owner.Id}` }"></a>
+                                        <!-- /ko -->
+                                        <!-- ko if: !$data.Owner -->
+                                        <div data-bind="text: $data.OwnerId"></div>
+                                        <!-- /ko -->
+                                    </td>
+                                </tr>
+                                <!-- <tr>
+                                    <td class="label">Registration number</td>
+                                    <td class="value">
+                                        <div data-bind="text: $data.RegNo"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="label">Born</td>
+                                    <td class="value">
+                                        <div data-bind="text: $data.DOBFormatted"></div>
+                                    </td>
+                                </tr> -->
+                                <tr>
+                                    <td class="label">Living</td>
+                                    <td class="value">
+                                        <div data-bind="text: $data.DeadFormatted"></div>
+                                    </td>
+                                </tr>
+                                <!-- <tr>
+                                    <td class="label">Sex</td>
+                                    <td class="value">
+                                        <div data-bind="text: $data.SexFormatted"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="label">Color</td>
+                                    <td class="value">
+                                        <div data-bind="text: $data.Color"></div>
+                                    </td>
+                                </tr> -->
+                                <tr>
+                                    <td class="label">Horns</td>
+                                    <td class="value">
+                                        <div data-bind="text: $data.HornInfo"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="label">Ears</td>
+                                    <td class="value">
+                                        <div data-bind="text: $data.Ears"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="label">Right ear tattoo</td>
+                                    <td class="value">
+                                        <div data-bind="text: $data.TattooRE"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="label">Left ear tattoo</td>
+                                    <td class="value">
+                                        <div data-bind="text: $data.TattooLE"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="label">Breeding standards</td>
+                                    <td class="value">
+                                        <div data-bind="text: $data.MeetsBrdStnd"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="label">Meets4Gen</td>
+                                    <td class="value">
+                                        <div data-bind="text: $data.Meets4Gen"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="label">4GenPhotoPed</td>
+                                    <td class="value">
+                                        <div data-bind="text: $data['4GenPhotoPed']"></div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="column" data-bind="if: $data.Photo">
+                        <img loading="lazy" data-bind="attr: { src: $data.Photo }" />
+                    </div>
+
+
+                </div>
+                <div class="columns">
+                    <div style="min-width: 300px;min-height: 80px;">
+                        <h3>Sire</h3>
+                        <!-- ko template: { name: 'template-goat-tile', data: $data.Sire } --><!-- /ko -->
+                    </div>
+                    <div style="min-width: 300px;min-height: 80px;">
+                        <h3>Dam</h3>
+                        <!-- ko template: { name: 'template-goat-tile', data: $data.Dam } --><!-- /ko -->
+                    </div>
+                </div>
+
+                <h3>Lineage</h3>
+                <div class="lineage">
+                    <!-- ko template: { name: 'template-goat-parents', data: { goat: $data, depth: 0 } } --><!-- /ko -->
+                </div>
+
+                <h3>Offspring</h3>
+                <div class="children tiles"
+                    data-bind="template: { foreach: $data.Children, name: 'template-goat-tile' }"></div>
+            </div>
+        </div>
+    </div>
+    <div id="breeders" class="tab-content" data-bind="visible: $root.selectedTabIndex() === 1">
+        <div class="list">
+            <input type="text" data-bind="textInput: $root.breedersFilter.input" placeholder="Search" />
+            <div class="filter-status"
+                data-bind="text: `Showing ${$root.breedersFilter.items().length} of ${$root.breedersFilter.itemsSource.length}`">
+            </div>
+            <div data-bind="foreach: $root.breedersFilter.items" class="items">
+                <a
+                    data-bind="text: $data.Name, attr: { selected: $root.selectedBreederId() === $data.Id, href: `#m=${$data.Id}`, 'data-id': $data.Id }"></a>
+            </div>
+        </div>
+        <div class="preview" data-bind="with: $root.selectedBreeder">
+            <div data-bind="attr: { 'data-id': $data.Id }" class="item">
+                <h2 data-bind="text: $data.Name">Name</h2>
+
+                <table>
+                    <tbody>
+                        <tr>
+                            <td class="label">Address</td>
+                            <td class="value">
+                                <div data-bind="text: $data.Address"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label">Email</td>
+                            <td class="value">
+                                <div data-bind="text: $data.Email"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label">Website</td>
+                            <td class="value">
+                                <div data-bind="text: $data.Website"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label">ADGA Member ID</td>
+                            <td class="value">
+                                <div data-bind="text: $data.ADGAMmbrID"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label">ADGA Herdname</td>
+                            <td class="value">
+                                <div data-bind="text: $data.ADGAHerdname"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label">BGS Member ID</td>
+                            <td class="value">
+                                <div data-bind="text: $data.BGSMmbrID"></div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label">BGS Prefix</td>
+                            <td class="value">
+                                <div data-bind="text: $data.BGSPrefix"></div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Goats</h3>
+                <div data-bind="foreach: $data.Goats" class="tiles">
+                    <!-- ko template: { name: 'template-goat-tile', data: $data } --><!-- /ko -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/html" id="template-lineage-old">
+        <table class="lineage" style="display: none;">
+            <thead>
+                <tr>
+                    <th>Ancestors</th>
+                    <th>Siblings</th>
+                    <th>Descendants</th>
+                </tr>
+            </thead>
+            <tr>
+                <td>
+                    <!-- ko template: { name: 'template-goat-tile', data: $data.Sire } --><!-- /ko -->
+                    <!-- ko template: { name: 'template-goat-tile', data: $data.Dam } --><!-- /ko -->
+                </td>
+                <td>
+                    <!-- xko template: { name: 'template-goat-tile', data: $data } --><!-- /xko -->
+                    <!-- ko template: { name: 'template-goat-tile', foreach: $data.Siblings } --><!-- /ko -->
+                </td>
+                <!-- ko foreach: $data.getAllDescendants() -->
+                <td>
+                    <!-- ko template: { name: 'template-goat-tile', foreach: $data } --><!-- /ko -->
+                </td>
+                <!-- /ko -->
+            </tr>
+        </table>
+    </script>
+
+    <script type="text/html" id="template-goat-parents">
+        <table class="lineage" data-bind="attr: { depth: $data.depth }">
+            <!-- ko template: { name: 'template-goat-parent', if: $data.goat.Sire, data: { goat: $data.goat.Sire, depth: $data.depth } } --><!-- /ko -->
+            <!-- ko template: { name: 'template-goat-parent', if: $data.goat.Dam, data: { goat: $data.goat.Dam, depth: $data.depth } } --><!-- /ko -->
+        </table>
+    </script>
+
+    <script type="text/html" id="template-goat-parent">
+        <tr>
+            <td class="current">
+                <div>
+                    <!-- ko template: { name: 'template-goat-tile', data: $data.goat, if: $data.depth < $root.maxFullTileDepth } --><!-- /ko -->
+                    <!-- ko template: { name: 'template-goat-tile-mini', data: $data.goat, if: $data.depth >= $root.maxFullTileDepth } --><!-- /ko -->
+                    <!-- ko template: { name: 'template-goat-lineage-branch', if: $data.goat && ($data.goat.Sire || $data.goat.Dam) && $data.depth < $root.maxLineageDepth } --><!-- /ko -->
+                </div>
+            </td>
+            <td class="parents">
+                <!-- ko template: { name: 'template-goat-parents', data: { goat: $data.goat, depth: $data.depth + 1 }, if: $data.goat && $data.depth < $root.maxLineageDepth } --><!-- /ko -->
+            </td>
+        </tr>
+    </script>
+
+    <script type="text/html" id="template-goat-lineage-branch">
+        <div class="branch">
+            <div class="top h bp"></div>
+            <div class="top v bp"></div>
+            <div class="middle h bp"></div>
+            <div class="bottom v bp"></div>
+            <div class="bottom h bp"></div>
+        </div>
+    </script>
+    <script type="text/html" id="template-goat-tile">
+        <!-- ko if: $data -->
+    <a class="tile" data-bind="attr: { href: `#p=${$data.Id}` }">
+        <header>
+            <span data-bind="text: $data.PreTitle" class="pre-title"></span>
+            <span data-bind="text: $data.Name"></span>
+            <span data-bind="text: $data.PostTitle" class="post-title"></span>
+        </header>
+        <table>
+            <tbody>
+                <tr>
+                    <td class="descriptions">
+                        <div data-bind="text: $data.SexFormatted"></div>
+                        <div data-bind="text: $data.DOBFormatted"></div>
+                        <div data-bind="text: $data.RegNo"></div>
+                        <div data-bind="text: $data.Color"></div>
+                    </td>
+                    <td rowspan="3">
+                        <!-- ko if: $data.Photo -->
+                        <img loading="lazy" data-bind="attr: { src: $data.Photo }" />
+                        <!-- /ko -->
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </a>
+    <!-- /ko -->
+    <!-- ko if: !$data -->
+    <div class="no-data">Unknown</div>
+    <!-- /ko -->
+    </script>
+    <script type="text/html" id="template-goat-tile-mini">
+        <!-- ko if: $data -->
+    <a class="tile tile-mini" data-bind="attr: { href: `#p=${$data.Id}` }">
+        <header>
+            <span data-bind="text: $data.PreTitle" class="pre-title"></span>
+            <span data-bind="text: $data.Name"></span>
+            <span data-bind="text: $data.PostTitle" class="post-title"></span>
+        </header>
+        <div class="description" data-bind="text: $data.ShortDescription"></div>
+    </a>
+    <!-- /ko -->
+    <!-- ko if: !$data -->
+    <div class="no-data">Unknown</div>
+    <!-- /ko -->
+    </script>
+    <script type="text/html" id="template-goat-lineage">
+        <div class="parents">
+            <!-- ko template: { name: 'template-goat-tile', data: $data.Sire } --><!-- /ko -->
+            <!-- ko template: { name: 'template-goat-tile', data: $data.Dam } --><!-- /ko -->
+        </div>
+        <div class="children" data-bind="template: { foreach: $data.Children, name: 'template-goat-tile' }">
+            
+        </div>
+    </script>
